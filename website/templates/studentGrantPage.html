@@ -1,0 +1,46 @@
+{%extends 'studentNav.html'%}
+{%block title%}Student Page {%endblock%}
+{%block content%}
+
+<div class="jumbotron p-3 position=fixed-navbar">
+    <div class="well text-center">
+        <h1>Welcome {{current_user.firstName}}</h1>
+   </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <div class="col md-12">
+          <div class="jumbotron p-3">
+            <h2>View Available <b>Grants</b></h2>
+              <table class="table table-hover table-dark">
+                  <tr>
+                     <th>ID</th>
+                      <th>Company Name</th>
+                      <th>Opening Date</th>
+                      <th>Closing Date</th>
+                      <th>Department</th>
+                      <th>Company Email</th>
+                      <th>Additional Requirements</th>
+                  </tr>
+                  {% for row in sponsors %}
+                  <tr>
+                      <td>{{row.id}}</td>
+                      <td>{{row.GAcompanyName}}</td>
+                      <td>{{row.GBOpeningDate}}</td>
+                      <td>{{row.GCclosingDate}}</td>
+                      <td>{{row.GDdepartment}}</td>
+                      <td>{{row.companyEmail}}</td>
+                      <td>{{row.add_req}}</td>
+                      <td>
+                          <a href="https://drive.google.com/uc?export=download&id=1zeW5Jqz2xMVbXH4p_enhEnPPzoGsB2Lg" class="btn btn-success btn-xs"  >Apply</a>
+                      </td>
+                  </tr>
+                  {%endfor%}
+                </table>
+           </div>   
+        </div>  
+   </div>      
+</div> 
+{%endblock%}
+
